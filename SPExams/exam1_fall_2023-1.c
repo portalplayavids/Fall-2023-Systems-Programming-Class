@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     char pid[64];
     pid_t mypid = getpid();
     sprintf(pid, "%d", mypid);
-    setenv("PID", P_PID, 1);
+    setenv("PID", mypid, 1);
 
     check_code(argc, argv);
     return 0;
