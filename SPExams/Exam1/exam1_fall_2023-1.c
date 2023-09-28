@@ -17,27 +17,29 @@ int main(int argc, char *argv[])
 {
     // Step 1
     // If args is not equal to 3, print usage and exit
-    if (argc != 3)
-    {
-        printf("Usage: %s name value\n", argv[0]);
+    if(argc != 3){
+        printf("Usage: ./exam1 name value\n");
         exit(1);
     }
+
     // Step 2
     // Set environment variable using name and value
     // hint: argv[1] contains the name
     //       argv[2] contains the value
     setenv(argv[1], argv[2], 1);
-
     // Step 3 (Bonus Points)
     // Get the PID
     // Set environment variable "PID" to the PID value
     // hint: you need to convert the PID to a string first (there might be an example...)
-
-    char pid[64];
+    
     pid_t mypid = getpid();
+    char pid[64];
     sprintf(pid, "%d", mypid);
-    setenv("PID", mypid, 1);
 
+    setenv("PID", pid, 1);
+
+
+    // Do not modify below this line
     check_code(argc, argv);
     return 0;
 }
