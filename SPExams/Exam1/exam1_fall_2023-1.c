@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     // Step 1
     // If args is not equal to 3, print usage and exit
     if(argc != 3){
-        printf("Usage: ./exam1 name value\n");
+        printf("Usage: ./exam1_fall_2023-1 name value\n");
         exit(1);
     }
 
