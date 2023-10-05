@@ -19,20 +19,20 @@ int main()
     // sprintf(pid_str, "%d", <variable used for getpid>);
 
     pid_t pid = getpid();
-    // printf("pid: %d\n", pid); // for debugging
+     printf("pid: %d\n", pid); // for debugging
 
     // Step 3
     // set environment variable PPID to the PID
 
     pid_t ppid = getppid();
-    // printf("ppid: %d\n", ppid); // for debugging
+     printf("ppid: %d\n", ppid); // for debugging
 
     char ppid_str[20];
-    // snprintf(ppid_str, sizeof(ppid_str), "%d", ppid); // for debugging
+     snprintf(ppid_str, sizeof(ppid_str), "%d", ppid); // for debugging
 
     setenv("PPID", ppid_str, 1);
 
-    // printf("Environment Variable: PPID = %s\n", getenv("PPID")); // for debugging
+     printf("Environment Variable: PPID = %s\n", getenv("PPID")); // for debugging
 
     // Step 4
     // set environment variable USER to the "ee3233"

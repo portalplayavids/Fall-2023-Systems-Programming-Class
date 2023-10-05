@@ -69,7 +69,7 @@ def ScientificCalculator():
     elif operation == 6:
         num1 = float(input("Please enter the number: "))
         result = math.sqrt(num1)
-        print("The result is: %2d ", result)
+        print("The result is: ", result)
 
     # If the user selects sine
     elif operation == 7:
