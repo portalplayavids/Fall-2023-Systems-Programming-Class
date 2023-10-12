@@ -3,5 +3,6 @@
         "Fibonnaci.C": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": false
 }
