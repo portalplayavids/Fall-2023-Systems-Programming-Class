@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "Fibonnaci.C": "cpp"
+        "Fibonnaci.C": "cpp",
+        "Assignment_4A.C": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "python.analysis.typeCheckingMode": "basic",
