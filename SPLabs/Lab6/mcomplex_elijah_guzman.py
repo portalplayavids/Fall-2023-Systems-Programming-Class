@@ -1,4 +1,8 @@
-class complex:
+# Elijah Guzman - nze594 - 10/21/23
+class MyComplex:
+    """
+    This class represents a complex number with real and imaginary parts.
+    """
     def __init__(self, r: int, i: int):
         """
         Constructor for this complex object
@@ -9,15 +13,14 @@ class complex:
         self.r = r
         self.i = i
 
-    def print(self):
+    def __str__(self):
         """
-        Defines the method print for a complex object
-        and prints to STDOUT
-        :return: None
+        Defines the string representation of a complex object
+        :return: A string representation of a complex object
         """
-        print(f"{self.r} + {self.i}i")
+        return f"{self.r} + {self.i}i"
 
-    def __add__(self, other) -> complex:
+    def __add__(self, other) -> 'MyComplex':
         """
         Defines the behavior of the operator + with two complex objects
         according to the following math operation
@@ -29,10 +32,10 @@ class complex:
         c = other.r
         d = other.i
 
-        result = complex(a + c, b + d)
+        result = MyComplex(a + c, b + d)
         return result
 
-    def __sub__(self, other) -> complex:
+    def __sub__(self, other) -> 'MyComplex':
         """
         Defines the behavior of the operator - with two complex objects
         according to the following math operation
@@ -44,7 +47,7 @@ class complex:
         c = other.r
         d = other.i
 
-        result = complex(a - c, b - d)
+        result = MyComplex(a - c, b - d)
         return result
 
     def __eq__(self, other) -> bool:
@@ -61,22 +64,36 @@ class complex:
         """
         return self.r != other.r or self.i != other.i
 
-    # ========= The functions below need to be defined ==================
-    def __mul__(self, other) -> complex:
+    def __mul__(self, other) -> 'MyComplex':
         """
         Defines the behavior of the operator * with two complex objects
         according to the following math operation
             (a + bi) * (c + di) = (ac - bd) + (ad + bc)i
         :return: A new complex object as result from the operation above
         """
+        a = self.r
+        b = self.i
+        c = other.r
+        d = other.i
 
-    def __truediv__(self, other) -> complex:
+        result = MyComplex(a*c - b*d, a*d + b*c)
+        return result
+
+    def __truediv__(self, other) -> 'MyComplex':
         """
         Defines the behavior of the operator / with two complex objects
         according to the following math operation
             (a + bi) / (c + di) = ((ac + bd) + (bc - ad)i) / (c^2 + d^2)
         :return: A new complex object as result from the operation above
         """
+        a = self.r
+        b = self.i
+        c = other.r
+        d = other.i
+
+        denominator = c**2 + d**2
+        result = MyComplex((a*c + b*d)/denominator, (b*c - a*d)/denominator)
+        return result
 
     def __lt__(self, other) -> bool:
         """
@@ -86,27 +103,28 @@ class complex:
         :return: A boolean value comparing the euclidean distance between
                  two complex objects
         """
+        return (self.r**2 + self.i**2) < (other.r**2 + other.i**2)
 
     def __gt__(self, other) -> bool:
         """
-        Defines the behavior of the operator < with two complex objects
+        Defines the behavior of the operator > with two complex objects
         according to the following logic operation
             distance of self > distance of other
         :return: A boolean value comparing the euclidean distance between
                  two complex objects
         """
-    # ===================================================================
+        return (self.r**2 + self.i**2) > (other.r**2 + other.i**2)
 
 def test():
     """
     You can define any test case for complex objects
     """
-    x = complex(1, 2)
-    y = complex(2, 4)
+    x = MyComplex(1, 2)
+    y = MyComplex(2, 4)
     z = x + y
-    z.print()
+    print(z)
     z = x / y
-    z.print()
+    print(z)
     print(f"X complex is greater than Y complex: {x > y}")
     print(f"X complex is less than Y complex: {x < y}")
 
