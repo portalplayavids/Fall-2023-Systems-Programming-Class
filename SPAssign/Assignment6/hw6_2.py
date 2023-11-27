@@ -9,10 +9,6 @@
 import threading
 import sys
 
-counter = 0
-import threading
-import sys
-
 lock = threading.Lock()
 counter = 0
 
