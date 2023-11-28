@@ -1,4 +1,5 @@
-#Using threading and multiprocessing (10 threads) increment a counter from 0 to 1000000000 and print the result.
+# Using threading and multiprocessing (10 threads) 
+# increment a counter from 0 to 1000000000 and print the result.
 # it should decrement back to 0 and print the result.
 # output:
 #   Incrementing counter from 0 to 1000000000 using 10 threads
