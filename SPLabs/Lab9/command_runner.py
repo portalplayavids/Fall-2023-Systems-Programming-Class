@@ -10,7 +10,7 @@
 #   b. Create a class called CommandRunner
 #######################################################
 # 2. Implementing Command Execution:
-#   a. In the CommandRunner class, implement a 
+#   a. In the CommandRunner class, implement a
 #      run_command method using 'subprocess.Popen'
 #      to execute a command.
 #######################################################
@@ -32,11 +32,9 @@ class CommandRunner:
     def run_command(self, command):
         # "command execution via popen"
         pass
-    
     def parse_ls_output(self, output):
         # "parse ls -l output"
         pass
-    
     def parse_ps_output(self, output):
         # "parse ps aux output"
         pass
