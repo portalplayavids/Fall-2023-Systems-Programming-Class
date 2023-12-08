@@ -112,7 +112,7 @@ if __name__ == "__main__":
         elif cmd == b'download_file':
             # The client wants to download a file
             # Which means the server should upload a file to send to the client
-            conn.sendall(b"Sending the file")
+            conn.sendall(b'Sending the file')
             # 1.) Call upload function
             data = upload_file()
             # 2.) Send the results back to the client
