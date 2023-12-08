@@ -1,16 +1,32 @@
+
 class FileIO:
+    """
+    This class provides methods for reading and writing files.
+    """
+
     @staticmethod
     def read_file(file_path="to_read.txt") -> bytes:
         """
-        This method reads data from a file specified by 'file_path' and returns it.
-        TODO: Implement this method. Use binary mode "rb"
+        Read the contents of a file and return as bytes.
+
+        Args:
+            file_path (str): The path of the file to read. Default is "to_read.txt".
+
+        Returns:
+            bytes: The contents of the file as bytes.
         """
-        pass
+        with open(file_path, "rb") as file:
+            data = file.read()
+        return data
 
     @staticmethod
     def write_file(data: bytes, file_path="to_write.txt"):
         """
-        This method writes 'data' to a file specified by 'file_path'.
-        TODO: Implement this method. Use binary mode "rb"
+        Write the given data to a file.
+
+        Args:
+            data (bytes): The data to write to the file.
+            file_path (str): The path of the file to write. Default is "to_write.txt".
         """
-        pass
+        with open(file_path, "wb") as file:
+            file.write(data)
