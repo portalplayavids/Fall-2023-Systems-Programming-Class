@@ -6,7 +6,6 @@ import subprocess
 
 # import your modules
 import fileio
-import command
 
 
 
@@ -62,7 +61,6 @@ if __name__ == "__main__":
     HOST = '127.0.0.1'
     PORT = 8080                  # Reserve a port for your service.
 
-    # TODO
     # write code for bind, listen
     s.bind((HOST, PORT))
     s.listen(5)

