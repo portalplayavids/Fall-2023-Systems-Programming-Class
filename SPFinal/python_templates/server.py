@@ -100,7 +100,7 @@ if __name__ == "__main__":
 
             # 1.) send acknowledgement to the client
             # example: s.sendall(b"Waiting for the file")
-            conn.sendall(b"Waiting for the file")
+            conn.sendall(b'Waiting for the file')
 
             # 2.) Recv the data
             data = conn.recv(4096)
