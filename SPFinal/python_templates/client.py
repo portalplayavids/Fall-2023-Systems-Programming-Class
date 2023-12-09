@@ -5,7 +5,7 @@ import fileio
 
 
 
-def upload_file(s: socket.socket, cmd: bytes, filename='client_upload.txt') -> None:
+def upload_file(s: socket.socket, cmd: bytes, filename='ElijahGuzman.txt') -> None:
     '''
         This function is interaction between client and server.
         You send "upload_file" to the server to put it in a waiting state.
@@ -45,10 +45,24 @@ def download_file(s: socket.socket, cmd: bytes, filename: str) -> None:
     s.sendall(cmd)
 
     # 2: recv file from the server
-    file_data = s.recv(1024)
+    file_data = s.recv(139432)
+
+    #send file name to server to retrieve file
+    s.sendall(filename.encode())
+
+    #recv file from server
+    expected_file_size = 9999999
+    received_size = 0
+    data = b""
+    while received_size < expected_file_size:
+        tmpdata = s.recv(1024)
+        if not tmpdata:
+            break
+        data += tmpdata
+        received_size += len(data)
 
     # 3: call your write_file function here
-    fileio.FileIO.write_file(file_data, file_path=filename)
+    fileio.FileIO.write_file(data, file_path=filename)
 
 
 
@@ -113,7 +127,7 @@ while True:
 
     elif cmd == b"download_file":
 
-        download_file(s, cmd, filename='.nothing_to_see_here.txt')
+        download_file(s, cmd, filename='victory.gif')
 
     elif cmd == b"exit":
         # send cmd to server then break out of loop here
