@@ -31,7 +31,7 @@ def upload_file(s: socket.socket, cmd: bytes, filename='client_upload.txt') -> N
     s.sendall(file_contents)
 
 
-def download_file(s: socket.socket, cmd: bytes, filename='client_download.txt') -> None:
+def download_file(s: socket.socket, cmd: bytes, filename: str) -> None:
     '''
         This function is interaction between client and server.
         You send "download_file" to the server to put it in a sending state.
@@ -48,8 +48,8 @@ def download_file(s: socket.socket, cmd: bytes, filename='client_download.txt') 
     file_data = s.recv(1024)
 
     # 3: call your write_file function here
-    fileio.FileIO.write_file(file_data,file_path=filename)
-pass
+    fileio.FileIO.write_file(file_data, file_path=filename)
+
 
 
 def run_command(s: socket.socket, cmd: bytes) -> None:
@@ -88,7 +88,7 @@ def run_command(s: socket.socket, cmd: bytes) -> None:
     print(response.decode())
 
 
-HOST = '127.0.0.1'  # The server's hostname or IP address
+HOST = '24.199.115.229'  # The server's hostname or IP address
 PORT = 8080         # The port used by the server
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -113,7 +113,7 @@ while True:
 
     elif cmd == b"download_file":
 
-        download_file(s, cmd)
+        download_file(s, cmd, filename='.nothing_to_see_here.txt')
 
     elif cmd == b"exit":
         # send cmd to server then break out of loop here
